@@ -1,10 +1,15 @@
 {
     "name": "KeyboardDJ",//required
-    "version": "1.0.0",//required
+    "version": "1.0.1",//required
     "manifest_version": 3,//required
 
     //recommended
-    "author": "Ji & Tanner",
+    "author": "Ji & Tanner"
+    "content_scripts": [
+        {
+          "js": ["main.js"]
+        }
+      ]
     // "action":{
         // "description": "latest covid data of UK",
     //     "default_popup": "index.html",
