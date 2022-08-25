@@ -5,7 +5,9 @@
     //create backtrack tag
     const extensionURL = chrome.runtime.getURL(
         './assets/'
-      );
+        );
+
+
     let backTrack = document.createElement("audio");
     backTrack.setAttribute("loop", "loop");
     backTrack.setAttribute("autoplay", "autoplay");
@@ -41,6 +43,8 @@
         console.log('overlay', overlayPartyDiv)
         if(!overlayPartyDiv) {
             createPartyDiv();
+        }
+        if(!visualPulseActive){
         }
         // console.log('audio', `${audioSampleFilePath}${audioSrc}.wav`)
         // console.log('audio', `${extensionURL}${audioSrc}.wav`)

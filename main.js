@@ -6,6 +6,18 @@
     const extensionURL = chrome.runtime.getURL(
         './assets/'
       );
+
+    // const visualPulseActive = false;
+    // document.body.style.transition = '1s';
+    const pulsingOut = [
+        {transform: 'scale(1.025,1.025)'},
+        {transform:  'scale(1,1)'}
+
+    ]
+    const pulseDuration ={
+        duration: 75,
+        iterations: 1
+    }
     let backTrack = document.createElement("audio");
     backTrack.setAttribute("loop", "loop");
     backTrack.setAttribute("autoplay", "autoplay");
@@ -24,10 +36,36 @@
 
     const setBg = () => {
         //produce a random hexadecimal color between 0 and 255^3 
+        document.body.animate(pulsingOut, pulseDuration)
+        // pulseBodyOut();
+        // pulseBodyIn();
         const randomColor = Math.floor(Math.random()*16777215).toString(16);
-        overlayPartyDiv.style.backgroundColor = "#" + randomColor + "40";
+        overlayPartyDiv.style.backgroundColor = "#" + randomColor + "64";
         // console.log('overlayPartyDiv',overlayPartyDiv)
       }
+
+    const pulseBodyOut = () => {
+        
+        document.body.style.transitionDuration = '.05s'
+        document.body.style.transform = 'scale(1.1,1.1)'
+        // document.body.style.transitionDuration = '.1s'
+        // document.body.style.transform = 'scale(0.9,0.9)'
+        // document.body.style.transition = 'transform(1)'
+        // document.body.style.transform = 'scale(1,1)'
+        // setTimeout(()=>{
+        // }, 250)
+    }
+    const pulseBodyIn = () => {
+        
+        document.body.style.transitionDuration = '.05s'
+        document.body.style.transform = 'scale(1,1)'
+        // document.body.style.transitionDuration = '.1s'
+        // document.body.style.transform = 'scale(0.9,0.9)'
+        // document.body.style.transition = 'transform(1)'
+        // document.body.style.transform = 'scale(1,1)'
+        // setTimeout(()=>{
+        // }, 250)
+    }
 
     //DRY method; 
       const updateAudioAndVideo = (audioSrc) => {
