@@ -16,14 +16,20 @@
     soundEffect.setAttribute("autoplay", "autoplay");
     soundEffect.volume = 1;
     
-    let overlayPartyDiv = document.createElement("div")
-    overlayPartyDiv.setAttribute("id", "overlayPartyDiv")
-    document.body.appendChild(overlayPartyDiv)
+    const createPartyDiv = () => {
+        let overlayPartyDiv = document.createElement("div")
+        overlayPartyDiv.setAttribute("id", "overlayPartyDiv")
+        document.body.appendChild(overlayPartyDiv)
+        return overlayPartyDiv;
+    }
+    overlayPartyDiv = createPartyDiv();
     //changing background color;
-    
 
     const setBg = () => {
         //produce a random hexadecimal color between 0 and 255^3 
+        if(!overlayPartyDivq) {
+            createPartyDiv();
+        }
         const randomColor = Math.floor(Math.random()*16777215).toString(16);
         overlayPartyDiv.style.backgroundColor = "#" + randomColor + "40";
         // console.log('overlayPartyDiv',overlayPartyDiv)
@@ -32,13 +38,19 @@
     //DRY method; 
       const updateAudioAndVideo = (audioSrc) => {
         backTrack.setAttribute("src", `${extensionURL}${audioSrc}.wav`); 
+        console.log('overlay', overlayPartyDiv)
+        if(!overlayPartyDiv) {
+            createPartyDiv();
+        }
         // console.log('audio', `${audioSampleFilePath}${audioSrc}.wav`)
         // console.log('audio', `${extensionURL}${audioSrc}.wav`)
         setBg();
       }
 
       const updateSingleAudio = (audioSrc) => {
-        
+        if(!overlayPartyDiv) {
+            createPartyDiv();
+        }
         soundEffect.setAttribute("src", `${extensionURL}${audioSrc}.wav`)
         setBg();
       }
@@ -54,6 +66,7 @@
                 break;
             case "KeyQ":
                 backTrack.pause();
+                overlayPartyDiv.remove();
                 break;
             
             //Non looping sounds
