@@ -72,7 +72,8 @@
         }
         
         const body = document.querySelector('body');
-        body.addEventListener('keydown', (e) => {23
+        body.addEventListener('keydown', (e) => {
+            if(!e.repeat){
             switch(e.code){
                 case "Digit1":
                 console.log('audio',audioTags)
@@ -139,14 +140,13 @@
                 case "KeyB":
                     updateSingleAudio(11, "crash")
                     break;
-                
+            }
         }
 
     })
 
 
 // })
-
 
 
 
