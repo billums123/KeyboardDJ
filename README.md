@@ -17,3 +17,8 @@ play notes (or sounds potentially?)
     HOPEFULLY aligns with BPM of music. We can also use https://www.thecolorapi.com/
     We can also have a specified background for toggle music/backtracks, and apply NEW backgrounds/colors when pressing specified note keys.
         When we press the specified toggle key again - Clear all colors. 
+
+
+
+
+df

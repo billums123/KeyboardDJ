@@ -1,7 +1,4 @@
-// console.log('Loaded here');
 // document.addEventListener('DOMContentLoaded', () => {
-    //const audioSampleFilePath = "https://github.com/billums123/KeyboardDJ/blob/main/assets/"
-    // console.log('You made it in!');
     //create backtrack tag
     const extensionURL = chrome.runtime.getURL(
         './assets/'
@@ -51,18 +48,12 @@
     const setBg = () => {
         //produce a random hexadecimal color between 0 and 255^3 
         document.body.animate(pulsingOut, pulseDuration)
-        // pulseBodyOut();
-        // pulseBodyIn();
         const randomColor = Math.floor(Math.random()*16777215).toString(16);
         overlayPartyDiv.style.backgroundColor = "#" + randomColor + "64";
-        // console.log('overlayPartyDiv',overlayPartyDiv)
     }
     
-    //DRY method; 
     const updateAudioAndVideo = (audioSrc) => {
         backTrack.setAttribute("src", `${extensionURL}${audioSrc}.wav`); 
-        // console.log('audio', `${audioSampleFilePath}${audioSrc}.wav`)
-        // console.log('audio', `${extensionURL}${audioSrc}.wav`)
         setBg();
     }
 
@@ -90,6 +81,9 @@
                 break;
             case "Digit5":
                 updateAudioAndVideo("drumTrack5");
+                break;
+            case "Digit6":
+                updateAudioAndVideo("drumTrack6");
                 break;
             case "KeyQ":
                 backTrack.pause();
@@ -139,7 +133,7 @@
                     break;
                 case "KeyB":
                     updateSingleAudio(11, "crash")
-                case "KeyN":
+                case "KeyM":
                     updateSingleAudio(12, "ride")
                     break;
             }
@@ -148,7 +142,6 @@
     })
 
 
-// })
 
 
 
@@ -160,118 +153,3 @@
 
 
 
-// // console.log('Loaded here');
-// // document.addEventListener('DOMContentLoaded', () => {
-//     //const audioSampleFilePath = "https://github.com/billums123/KeyboardDJ/blob/main/assets/"
-//     // console.log('You made it in!');
-//     //create backtrack tag
-//     const extensionURL = chrome.runtime.getURL(
-//         './assets/'
-//       );
-
-
-//       //pulse effect
-//     const pulsingOut = [
-//         {transform: 'scale(1.025,1.025)'},
-//         {transform:  'scale(1,1)'}
-
-//     ];
-//     //pulse effect duration
-//     const pulseDuration ={
-//         duration: 75,
-//         iterations: 1
-//     };
-
-//     //initialize single sound audio tags so that chords can be played
-
-//     let backTrack = document.createElement("audio");
-//     backTrack.setAttribute("loop", "loop");
-//     backTrack.setAttribute("autoplay", "autoplay");
-//     backTrack.volume = 0.5;
-    
-//     //create soundeffect tag;
-//     let soundEffect = document.createElement("audio")
-//     soundEffect.setAttribute("autoplay", "autoplay");
-//     soundEffect.volume = 0.25;
-    
-//     let overlayPartyDiv = document.createElement("div")
-//     overlayPartyDiv.setAttribute("id", "overlayPartyDiv")
-//     document.body.appendChild(overlayPartyDiv)
-//     //changing background color;
-    
-
-//     const setBg = () => {
-//         //produce a random hexadecimal color between 0 and 255^3 
-//         document.body.animate(pulsingOut, pulseDuration)
-//         // pulseBodyOut();
-//         // pulseBodyIn();
-//         const randomColor = Math.floor(Math.random()*16777215).toString(16);
-//         overlayPartyDiv.style.backgroundColor = "#" + randomColor + "64";
-//         // console.log('overlayPartyDiv',overlayPartyDiv)
-//       }
-
-//     //DRY method; 
-//       const updateAudioAndVideo = (audioSrc) => {
-//         backTrack.setAttribute("src", `${extensionURL}${audioSrc}.wav`); 
-//         // console.log('audio', `${audioSampleFilePath}${audioSrc}.wav`)
-//         // console.log('audio', `${extensionURL}${audioSrc}.wav`)
-//         setBg();
-//       }
-
-//       const updateSingleAudio = (audioSrc) => {
-        
-//         soundEffect.setAttribute("src", `${extensionURL}${audioSrc}.wav`)
-//         setBg();
-//       }
-
-//     const body = document.querySelector('body');
-//     body.addEventListener('keydown', (e) => {
-//         switch(e.code){
-//             case "Digit1":
-//                 updateAudioAndVideo("track1");
-//                 break;
-//             case "Digit2":
-//                 updateAudioAndVideo("track2");
-//                 break;
-//             case "Digit3":
-//                 updateAudioAndVideo("track3");
-//                 break;
-//             case "Digit4":
-//                 updateAudioAndVideo("track4");
-//                 break;
-//             case "KeyQ":
-//                 backTrack.pause();
-//                 break;
-            
-//             //Non looping sounds
-//             case "KeyA":
-//                 updateSingleAudio("cSharp")
-//                 break;
-//             case "KeyS":
-//                 updateSingleAudio("dSharp")
-//                 break;
-//             case "KeyD":
-//                 updateSingleAudio("fSharp")
-//                 break;
-//             case "KeyF":
-//                 updateSingleAudio("gSharp")
-//                 break;
-//             case "KeyJ":
-//                 updateSingleAudio("aSharp")
-//                 break;
-//             case "KeyK":
-//                 updateSingleAudio("cSharp2")
-//                 break;
-//             case "KeyL":
-//                 updateSingleAudio("dSharp2")
-//                 break;
-//             case "Semicolon":
-//                 updateSingleAudio("fSharp2")
-//                 break;
-
-//         }
-
-//     })
-
-
-// // })
